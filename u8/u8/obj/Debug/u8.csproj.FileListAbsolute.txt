@@ -1,0 +1,8 @@
+C:\Users\Long\source\repos\u8\u8\bin\Debug\u8.exe.config
+C:\Users\Long\source\repos\u8\u8\bin\Debug\u8.exe
+C:\Users\Long\source\repos\u8\u8\bin\Debug\u8.pdb
+C:\Users\Long\source\repos\u8\u8\obj\Debug\u8.Properties.Resources.resources
+C:\Users\Long\source\repos\u8\u8\obj\Debug\u8.u8main.resources
+C:\Users\Long\source\repos\u8\u8\obj\Debug\u8.csproj.GenerateResource.cache
+C:\Users\Long\source\repos\u8\u8\obj\Debug\u8.exe
+C:\Users\Long\source\repos\u8\u8\obj\Debug\u8.pdb
