@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <games>
-  <path name="E:\u8sdk\u8sdk_aar" />
+  <path>E:\u8sdk\u8sdk_aar</path>
   <game name="战箭天下" key="zjtx" id="3">
     <channel name="安智" id="anzhi" />
     <channel name="百度" id="baidu" />
@@ -44,5 +44,7 @@
     <channel name="vivo2" id="vivooffline2" />
     <channel name="oppo" id="oppo" />
     <channel name="悟饭" id="wufan" />
+    <channel name="小米" id="xiaomi" />
+    <channel name="华为" id="huawei" />
   </game>
 </games>

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "u8", "u8\u8.csproj", "{CC3AB757-557A-4FB2-BFB2-7B7ABCE08754}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "u8tools", "u8tools\u8tools.vdproj", "{0CCE5987-D70D-43DA-AFA1-ADEDCF4D367D}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "u8tools", "u8tools\u8tools.vdproj", "{966C0557-AEC6-4B7C-ABB5-965D1639753D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +23,10 @@ Global
 		{CC3AB757-557A-4FB2-BFB2-7B7ABCE08754}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CC3AB757-557A-4FB2-BFB2-7B7ABCE08754}.Release|x64.ActiveCfg = Release|x64
 		{CC3AB757-557A-4FB2-BFB2-7B7ABCE08754}.Release|x64.Build.0 = Release|x64
-		{0CCE5987-D70D-43DA-AFA1-ADEDCF4D367D}.Debug|Any CPU.ActiveCfg = Debug
-		{0CCE5987-D70D-43DA-AFA1-ADEDCF4D367D}.Debug|x64.ActiveCfg = Debug
-		{0CCE5987-D70D-43DA-AFA1-ADEDCF4D367D}.Debug|x64.Build.0 = Debug
-		{0CCE5987-D70D-43DA-AFA1-ADEDCF4D367D}.Release|Any CPU.ActiveCfg = Release
-		{0CCE5987-D70D-43DA-AFA1-ADEDCF4D367D}.Release|x64.ActiveCfg = Release
-		{0CCE5987-D70D-43DA-AFA1-ADEDCF4D367D}.Release|x64.Build.0 = Release
+		{966C0557-AEC6-4B7C-ABB5-965D1639753D}.Debug|Any CPU.ActiveCfg = Debug
+		{966C0557-AEC6-4B7C-ABB5-965D1639753D}.Debug|x64.ActiveCfg = Debug
+		{966C0557-AEC6-4B7C-ABB5-965D1639753D}.Release|Any CPU.ActiveCfg = Release
+		{966C0557-AEC6-4B7C-ABB5-965D1639753D}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

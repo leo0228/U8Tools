@@ -46,7 +46,7 @@
             this.path.TabIndex = 0;
             this.path.Text = "选择脚本文件地址";
             this.path.UseVisualStyleBackColor = true;
-            this.path.Click += new System.EventHandler(this.path_Click);
+            this.path.Click += new System.EventHandler(this.Path_Click);
             // 
             // path_string
             // 
@@ -56,7 +56,7 @@
             this.path_string.Name = "path_string";
             this.path_string.Size = new System.Drawing.Size(287, 30);
             this.path_string.TabIndex = 1;
-            this.path_string.TextChanged += new System.EventHandler(this.path_string_TextChanged);
+            this.path_string.TextChanged += new System.EventHandler(this.Path_string_TextChanged);
             // 
             // game
             // 
@@ -74,7 +74,7 @@
             this.game_choose.Name = "game_choose";
             this.game_choose.Size = new System.Drawing.Size(170, 20);
             this.game_choose.TabIndex = 3;
-            this.game_choose.SelectedIndexChanged += new System.EventHandler(this.game_choose_SelectedIndexChanged);
+            this.game_choose.SelectedIndexChanged += new System.EventHandler(this.Game_choose_SelectedIndexChanged);
             // 
             // channel
             // 
@@ -101,7 +101,7 @@
             this.run.TabIndex = 6;
             this.run.Text = "执行u8打包";
             this.run.UseVisualStyleBackColor = true;
-            this.run.Click += new System.EventHandler(this.run_Click);
+            this.run.Click += new System.EventHandler(this.Run_Click);
             // 
             // open_apk
             // 
@@ -111,7 +111,7 @@
             this.open_apk.TabIndex = 7;
             this.open_apk.Text = "打开APK目录";
             this.open_apk.UseVisualStyleBackColor = true;
-            this.open_apk.Click += new System.EventHandler(this.open_apk_Click);
+            this.open_apk.Click += new System.EventHandler(this.Open_apk_Click);
             // 
             // u8main
             // 

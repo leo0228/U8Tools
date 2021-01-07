@@ -9,114 +9,83 @@ namespace u8
    
     public partial class u8main : Form
     {
+        private string xml = Application.StartupPath + @"\channel.xml";
+        private string xmlNode = "games";
 
-        string xml = Application.StartupPath + "/channel.xml";
-        string xmlNode = "/games";
+        private XmlDocument doc;
+        private XmlNodeList nodeList;
 
         public u8main()
         {
             InitializeComponent();
 
+            Console.WriteLine(xml);
+
             game_choose.Items.Clear();
-            
-            XmlDocument doc = new XmlDocument();
+
+            doc = new XmlDocument();
+            //加载指定文件
             doc.Load(xml);
             //获取指定节点
-            XmlNode rootNode = doc.SelectSingleNode(xmlNode);
+            nodeList = doc.SelectSingleNode(xmlNode).ChildNodes;
             //在指定节点中查找节点
-            foreach (XmlNode node in rootNode.ChildNodes)
+            foreach (XmlNode node in nodeList)
             {
                 if (node.Name == "path")
                 {
-                    //获取"path"节点中"name"的值
-                    string path = node.Attributes["name"].Value;
-                    path_string.Text = path;
+                    //获取"path"节点的值
+                    path_string.Text = node.InnerText;
                 }
              
                 if (node.Name == "game") 
                 {
-                    ComboboxItem cbb = new ComboboxItem();
-                    cbb.Name = node.Attributes["name"].Value;
-                    cbb.Id = node.Attributes["id"].Value;
-                    cbb.Key = node.Attributes["key"].Value;
+                    ComboboxItem cbb = new ComboboxItem
+                    {
+                        Name = node.Attributes["name"].Value,
+                        Id = node.Attributes["id"].Value,
+                        Key = node.Attributes["key"].Value
+                    };
                     game_choose.Items.Add(cbb);          
                 }
 
             }
 
             game_choose.SelectedIndex = 0;
+
         }
 
-        private void path_Click(object sender, EventArgs e)
+        private void Path_Click(object sender, EventArgs e)
         {
             //选择文件目录
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                string file = fbd.SelectedPath;
-                path_string.Text = file;
+                path_string.Text = fbd.SelectedPath;
             }
         }
 
-        private void path_string_TextChanged(object sender, EventArgs e)
+        
+        private void Path_string_TextChanged(object sender, EventArgs e)
         {
-
-            XmlDocument doc = new XmlDocument();
-            doc.Load(xml);
-            XmlNode rootNode = doc.SelectSingleNode(xmlNode);
-
-            //XmlElement game = doc.CreateElement("game");//创建
-            //game.SetAttribute("name", "");
-            //XmlElement channel = doc.CreateElement("channel");
-            //channel.SetAttribute("name", "");
-            //game.AppendChild(channel);
-            //rootNode.AppendChild(game);
-            //doc.Save(xml);
-
-
-            foreach (XmlNode node in rootNode.ChildNodes)
+           
+            foreach (XmlNode node in nodeList)
             {
                 if (node.Name == "path")
                 {
-                    //修改"path"节点中"name"的值
-                    XmlElement element = (XmlElement)node;
-                    element.SetAttribute("name", path_string.Text);                    
+                    //修改"path"节点的值
+                    node.InnerText = path_string.Text;
                 }
 
-                //if (node.Name == "game")
-                //{
-                //    if (node.Attributes["id"].Value.Equals("3"))
-                //    {
-                //        XmlElement el = (XmlElement)node;
-                //        el.RemoveAll();//删除
-                //    }
-
-                //    XmlNodeList nodeList = node.ChildNodes;
-                //    foreach (XmlNode childNode in nodeList)
-                //    {
-                //        if (childNode.Attributes["id"].Value == "anzhi")
-                //        {
-                //            XmlElement el = (XmlElement)node;
-                //            XmlElement childEl = (XmlElement)childNode;
-                //            el.RemoveChild(childEl);
-                //        }
-                //    }
-                //}
-
             }
+
             doc.Save(xml);
         }
 
-        private void game_choose_SelectedIndexChanged(object sender, EventArgs e)
+        private void Game_choose_SelectedIndexChanged(object sender, EventArgs e)
         {
             channel_choose.Items.Clear();
 
-            XmlDocument doc = new XmlDocument();
-            doc.Load(xml);
-            //获取指定节点
-            XmlNode rootNode = doc.SelectSingleNode(xmlNode);
-            //在节点中查找节点
-            foreach (XmlNode node in rootNode.ChildNodes)
+            foreach (XmlNode node in nodeList)
             {
                 if (node.Name == "game")
                 {
@@ -126,9 +95,11 @@ namespace u8
                     {                     
                         foreach (XmlNode childNode in node)
                         {
-                            ComboboxItem cbb = new ComboboxItem();
-                            cbb.Name = childNode.Attributes["name"].Value;
-                            cbb.Id = childNode.Attributes["id"].Value;
+                            ComboboxItem cbb = new ComboboxItem
+                            {
+                                Name = childNode.Attributes["name"].Value,
+                                Id = childNode.Attributes["id"].Value
+                            };
                             channel_choose.Items.Add(cbb);
                         }                       
                     }                  
@@ -138,7 +109,7 @@ namespace u8
             channel_choose.SelectedIndex = 0;
         }
 
-        private void run_Click(object sender, EventArgs e)
+        private void Run_Click(object sender, EventArgs e)
         {
             string gamename = (game_choose.SelectedItem as ComboboxItem).Name.ToString();
             string channelname = (channel_choose.SelectedItem as ComboboxItem).Name.ToString();
@@ -146,6 +117,7 @@ namespace u8
             DialogResult dr = MessageBox.Show("已选择游戏 '" + gamename + "',渠道'" + channelname + "'",
                 "u8打包确认提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
+           
             if (dr == DialogResult.OK)
             {   
                 string appname = (game_choose.SelectedItem as ComboboxItem).Key.ToString();
@@ -175,7 +147,7 @@ namespace u8
             }
         }
 
-        private void open_apk_Click(object sender, EventArgs e)
+        private void Open_apk_Click(object sender, EventArgs e)
         {
             string gameKey = (game_choose.SelectedItem as ComboboxItem).Key.ToString();
             string channelId = (channel_choose.SelectedItem as ComboboxItem).Id.ToString();
@@ -187,6 +159,7 @@ namespace u8
             }
             System.Diagnostics.Process.Start(path);
         }
+
     }
 
     public class ComboboxItem
